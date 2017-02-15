@@ -39,6 +39,7 @@
 		656775D71E5442F500C9631A /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775BB1E5442F500C9631A /* UIView+WebCacheOperation.m */; };
 		656775D81E5442F500C9631A /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775BE1E5442F500C9631A /* NSObject+YYModel.m */; };
 		656775D91E5442F500C9631A /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775C01E5442F500C9631A /* YYClassInfo.m */; };
+		656775DC1E54519100C9631A /* DownloaderOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775DB1E54519100C9631A /* DownloaderOperationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		656775BF1E5442F500C9631A /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
 		656775C01E5442F500C9631A /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
 		656775C11E5442F500C9631A /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		656775DA1E54519100C9631A /* DownloaderOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderOperationManager.h; sourceTree = "<group>"; };
+		656775DB1E54519100C9631A /* DownloaderOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderOperationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 			children = (
 				656775851E54314D00C9631A /* DownloaderOperation.h */,
 				656775861E54314D00C9631A /* DownloaderOperation.m */,
+				656775DA1E54519100C9631A /* DownloaderOperationManager.h */,
+				656775DB1E54519100C9631A /* DownloaderOperationManager.m */,
 			);
 			path = DSWebImage;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				656775D41E5442F500C9631A /* UIImage+WebP.m in Sources */,
 				656775D81E5442F500C9631A /* NSObject+YYModel.m in Sources */,
 				656775CF1E5442F500C9631A /* SDWebImageManager.m in Sources */,
+				656775DC1E54519100C9631A /* DownloaderOperationManager.m in Sources */,
 				6567758A1E5442DF00C9631A /* APPModel.m in Sources */,
 				6567756F1E54301100C9631A /* main.m in Sources */,
 				656775CA1E5442F500C9631A /* SDImageCache.m in Sources */,

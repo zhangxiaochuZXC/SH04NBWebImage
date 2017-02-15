@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "YYModel.h"
 #import "APPModel.h"
+#import "DownloaderOperationManager.h"
 
 @interface ViewController ()
 
@@ -83,20 +84,11 @@
     // 记录上次图片地址
     self.lastUrlString = app.icon;
     
-    // 把随机获取的图片地址传入DownloaderOperation
-    DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:app.icon finished:^(UIImage *image) {
-        
+    // 单例管理下载操作
+    [[DownloaderOperationManager sharedManager] downloadImageWithUrlString:app.icon finished:^(UIImage *image) {
         // 刷新UI
         self.iconImageView.image = image;
-        // 图片下载完成后,对应的下载操作需要移除
-        [self.opCache removeObjectForKey:app.icon];
     }];
-    
-    // 把下载操作添加到缓存池
-    [self.opCache setObject:op forKey:app.icon];
-    
-    // 把操作添加到队列
-    [self.queue addOperation:op];
 }
 
 /*

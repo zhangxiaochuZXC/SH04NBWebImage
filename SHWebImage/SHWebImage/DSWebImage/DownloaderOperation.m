@@ -56,7 +56,7 @@
         return;
     }
     
-    // 图片下载结束之后,需要回调到外界
+    // 图片下载结束之后,需要回调单例传入的代码块,把图片数据回调给单例
     if (self.finishedBlock != nil) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSLog(@"完成 %@",self.urlString);
