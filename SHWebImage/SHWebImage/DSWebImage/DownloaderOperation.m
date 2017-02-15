@@ -50,9 +50,16 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     
+    // 判断当前要取消的操作的canceled属性是否为YES (耗时操作后面写)
+    if (self.cancelled == YES) {
+        NSLog(@"取消 %@",self.urlString);
+        return;
+    }
+    
     // 图片下载结束之后,需要回调到外界
     if (self.finishedBlock != nil) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"完成 %@",self.urlString);
             self.finishedBlock(image);
         }];
     }
