@@ -26,7 +26,12 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     
-    NSLog(@"image %@",image);
+    // 图片下载结束之后,需要回调到外界
+    if (self.finishedBlock != nil) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.finishedBlock(image);
+        }];
+    }
 }
 
 @end

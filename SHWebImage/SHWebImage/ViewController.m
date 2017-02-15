@@ -30,6 +30,18 @@
     // 传入图片地址
     op.urlString = @"http://paper.taizhou.com.cn/tzwb/res/1/2/2015-01/20/12/res03_attpic_brief.jpg";
     
+    // 准备代码块
+    void (^finishedBlock)(UIImage *) = ^(UIImage *image){
+        NSLog(@"%@ %@",image,[NSThread currentThread]);
+    };
+    // 传递代码块
+    op.finishedBlock = finishedBlock;
+    
+    /*
+    [op setFinishedBlock:^(UIImage *image) {
+    }];
+     */
+    
     // 操作添加到队列
     [self.queue addOperation:op];
 }
