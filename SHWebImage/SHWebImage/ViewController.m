@@ -76,9 +76,6 @@
             // 取消的操作需要移除
             [self.opCache removeObjectForKey:self.lastUrlString];
         }
-    } else {
-        // 连续传入的图片地址是一样的
-        return;
     }
     
     // 记录上次图片地址
