@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "DownloaderOperation.h"
 
 @interface ViewController ()
+
+/// 队列
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
@@ -16,7 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 创建队列
+    self.queue = [[NSOperationQueue alloc] init];
+    
+    // 创建操作
+    DownloaderOperation *op = [[DownloaderOperation alloc] init];
+    
+    // 操作添加到队列
+    [self.queue addOperation:op];
 }
 
 
