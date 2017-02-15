@@ -43,6 +43,9 @@
 
     NSLog(@"传入 %@",self.urlString);
     
+    // 模拟网络延迟
+    [NSThread sleepForTimeInterval:1.0];
+    
     NSURL *url = [NSURL URLWithString:self.urlString];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
