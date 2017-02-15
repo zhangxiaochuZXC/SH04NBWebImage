@@ -13,6 +13,7 @@
 		656775781E54301100C9631A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656775761E54301100C9631A /* Main.storyboard */; };
 		6567757A1E54301100C9631A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656775791E54301100C9631A /* Assets.xcassets */; };
 		6567757D1E54301100C9631A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6567757B1E54301100C9631A /* LaunchScreen.storyboard */; };
+		656775871E54314D00C9631A /* DownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775861E54314D00C9631A /* DownloaderOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		656775791E54301100C9631A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6567757C1E54301100C9631A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6567757E1E54301100C9631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656775851E54314D00C9631A /* DownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderOperation.h; sourceTree = "<group>"; };
+		656775861E54314D00C9631A /* DownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		6567756C1E54301100C9631A /* SHWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				656775841E54313600C9631A /* DSWebImage */,
 				656775701E54301100C9631A /* AppDelegate.h */,
 				656775711E54301100C9631A /* AppDelegate.m */,
 				656775731E54301100C9631A /* ViewController.h */,
@@ -77,6 +81,15 @@
 				6567756E1E54301100C9631A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		656775841E54313600C9631A /* DSWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				656775851E54314D00C9631A /* DownloaderOperation.h */,
+				656775861E54314D00C9631A /* DownloaderOperation.m */,
+			);
+			path = DSWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656775871E54314D00C9631A /* DownloaderOperation.m in Sources */,
 				656775751E54301100C9631A /* ViewController.m in Sources */,
 				656775721E54301100C9631A /* AppDelegate.m in Sources */,
 				6567756F1E54301100C9631A /* main.m in Sources */,
@@ -307,6 +321,7 @@
 				656775831E54301100C9631A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
