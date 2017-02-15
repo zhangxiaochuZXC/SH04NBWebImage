@@ -11,10 +11,31 @@
 /*
  负责图片下载
  1.需要图片的网络地址(URL)
- 2.
+ 2.需要回调到外界展示
  */
 
+@interface DownloaderOperation ()
+
+/// 接受外界传入的图片地址
+@property (nonatomic, copy) NSString *urlString;
+/// 接受外界传入的代码块
+@property (nonatomic, copy) void (^finishedBlock)(UIImage *);
+
+@end
+
 @implementation DownloaderOperation
+
++ (instancetype)downloaderOperationWithUrlString:(NSString *)urlString finished:(void (^)(UIImage *))finishedBlock {
+    
+    // 创建自定义操作对象
+    DownloaderOperation *op = [[DownloaderOperation alloc] init];
+    
+    // 记录外界传入的数据
+    op.urlString = urlString;
+    op.finishedBlock = finishedBlock;
+    
+    return op;
+}
 
 // main只有在队列调度操作后才会执行
 // 重写main方法的作用 : 可以在该方法里面指定自定义操作要执行的代码

@@ -24,6 +24,22 @@
     // 创建队列
     self.queue = [[NSOperationQueue alloc] init];
     
+    NSString *urlString = @"http://paper.taizhou.com.cn/tzwb/res/1/2/2015-01/20/12/res03_attpic_brief.jpg";
+    
+    // 类方法实例化自定义操作
+    DownloaderOperation *op = [DownloaderOperation downloaderOperationWithUrlString:urlString finished:^(UIImage *image) {
+        NSLog(@"%@ %@",image,[NSThread currentThread]);
+    }];
+    
+    // 操作添加到队列
+    [self.queue addOperation:op];
+}
+
+/*
+- (void)test {
+    // 创建队列
+    self.queue = [[NSOperationQueue alloc] init];
+    
     // 创建操作
     DownloaderOperation *op = [[DownloaderOperation alloc] init];
     
@@ -37,15 +53,15 @@
     // 传递代码块
     op.finishedBlock = finishedBlock;
     
-    /*
-    [op setFinishedBlock:^(UIImage *image) {
-    }];
-     */
+ 
+     [op setFinishedBlock:^(UIImage *image) {
+     }];
+ 
     
     // 操作添加到队列
     [self.queue addOperation:op];
 }
-
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
