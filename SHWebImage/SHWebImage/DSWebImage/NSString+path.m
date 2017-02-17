@@ -15,7 +15,11 @@
     // 获取cache文件路径
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
     // 获取文件名字 : self 就是分类方法的调用者
-    NSString *name = [self lastPathComponent];
+//    NSString *name = [self lastPathComponent];
+    
+    // 对图片的url进行MD5处理,保证不重名
+    NSString *name = [self md5String];
+    
     // cache文件路径拼接文件名,生成最后的全路径
     NSString *filePath = [cachePath stringByAppendingPathComponent:name];
     

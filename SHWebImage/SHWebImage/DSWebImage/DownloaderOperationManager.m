@@ -13,9 +13,9 @@
 /// 队列
 @property (nonatomic, strong) NSOperationQueue *queue;
 /// 下载操作缓存池
-@property (nonatomic, strong) NSMutableDictionary *opCache;
+@property (nonatomic, strong) NSCache *opCache;
 /// 图片缓存池
-@property (nonatomic, strong) NSMutableDictionary *imageCache;
+@property (nonatomic, strong) NSCache *imageCache;
 
 @end
 
@@ -40,11 +40,24 @@
     
     if (self = [super init]) {
         self.queue = [[NSOperationQueue alloc] init];
-        self.opCache = [[NSMutableDictionary alloc] init];
-        self.imageCache = [[NSMutableDictionary alloc] init];
+        self.opCache = [[NSCache alloc] init];
+        self.imageCache = [[NSCache alloc] init];
+        
+        // 注册内存警告的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemoryCache) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     
     return self;
+}
+
+- (void)clearMemoryCache {
+    
+    [self.imageCache removeAllObjects];
+}
+
+/// 单例只在程序退出时才销毁,所以只有程序退出时才会移除通知,(注意 : 在单例内部注册的通知,不需要移除,没有意义)
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)downloadImageWithUrlString:(NSString *)urlString finished:(void (^)(UIImage *))finishedBlock {

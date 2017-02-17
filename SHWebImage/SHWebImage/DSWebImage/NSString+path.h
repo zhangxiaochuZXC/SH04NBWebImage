@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+Hash.h"
 
 @interface NSString (path)
 

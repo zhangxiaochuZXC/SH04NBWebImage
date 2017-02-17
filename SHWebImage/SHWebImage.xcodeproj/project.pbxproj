@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		655945ED1E569D19007B9692 /* NSString+path.m in Sources */ = {isa = PBXBuildFile; fileRef = 655945EC1E569D19007B9692 /* NSString+path.m */; };
 		655945F01E56A3DC007B9692 /* UIImageView+DSB.m in Sources */ = {isa = PBXBuildFile; fileRef = 655945EF1E56A3DC007B9692 /* UIImageView+DSB.m */; };
+		6559467D1E56EEAF007B9692 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559467C1E56EEAF007B9692 /* NSString+Hash.m */; };
 		6567756F1E54301100C9631A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6567756E1E54301100C9631A /* main.m */; };
 		656775721E54301100C9631A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775711E54301100C9631A /* AppDelegate.m */; };
 		656775751E54301100C9631A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656775741E54301100C9631A /* ViewController.m */; };
@@ -49,6 +50,8 @@
 		655945EC1E569D19007B9692 /* NSString+path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+path.m"; sourceTree = "<group>"; };
 		655945EE1E56A3DC007B9692 /* UIImageView+DSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DSB.h"; sourceTree = "<group>"; };
 		655945EF1E56A3DC007B9692 /* UIImageView+DSB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DSB.m"; sourceTree = "<group>"; };
+		6559467B1E56EEAF007B9692 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		6559467C1E56EEAF007B9692 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		6567756A1E54301100C9631A /* SHWebImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SHWebImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6567756E1E54301100C9631A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		656775701E54301100C9631A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 		656775841E54313600C9631A /* DSWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				6559467B1E56EEAF007B9692 /* NSString+Hash.h */,
+				6559467C1E56EEAF007B9692 /* NSString+Hash.m */,
 				655945EB1E569D19007B9692 /* NSString+path.h */,
 				655945EC1E569D19007B9692 /* NSString+path.m */,
 				656775851E54314D00C9631A /* DownloaderOperation.h */,
@@ -366,6 +371,7 @@
 				656775CD1E5442F500C9631A /* SDWebImageDownloader.m in Sources */,
 				656775D51E5442F500C9631A /* UIImageView+HighlightedWebCache.m in Sources */,
 				656775CC1E5442F500C9631A /* SDWebImageDecoder.m in Sources */,
+				6559467D1E56EEAF007B9692 /* NSString+Hash.m in Sources */,
 				656775D41E5442F500C9631A /* UIImage+WebP.m in Sources */,
 				656775D81E5442F500C9631A /* NSObject+YYModel.m in Sources */,
 				656775CF1E5442F500C9631A /* SDWebImageManager.m in Sources */,
