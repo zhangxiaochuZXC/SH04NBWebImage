@@ -7,6 +7,15 @@
 //
 
 #import "UIImageView+DSB.h"
+#import <objc/runtime.h>
+
+/*
+ OC就是对运行时的封装
+ 可以交换方法的地址
+ 可以动态的获取对象的属性,给属性赋值 (字典转模型的框架)
+ 可以动态的获取系统的对象的私有的属性和成员变量 (不要轻易使用,上架会被拒绝)
+ 关联对象 : 可以动态的给分类的属性建立关联,用于重写分类属性的setter和getter方法,使分类属性可以存值
+ */
 
 @implementation UIImageView (DSB)
 
@@ -14,10 +23,17 @@
 
 - (void)setLastUrlString:(NSString *)lastUrlString {
     
+    /*
+     参数1 : 要关联的对象,就是当前对象self
+     参数2 : 要关联的属性的key,key用来存储属性值
+     参数3 : 要关联的属性
+     参数4 : 属性的存储策略
+     */
+    objc_setAssociatedObject(self, "key", lastUrlString, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (NSString *)lastUrlString {
-    return nil;
+    return objc_getAssociatedObject(self, "key");
 }
 
 - (void)ds_setImageWithUrlString:(NSString *)urlString {
