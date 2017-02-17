@@ -72,4 +72,16 @@
     [self.queue addOperation:op];
 }
 
+- (void)cancelOperation:(NSString *)lastUrlString {
+    
+    // 取消操作
+    DownloaderOperation *lastOp = [self.opCache objectForKey:lastUrlString];
+    if (lastOp != nil) {
+        // 仅仅是修改了canceled属性为YES而已
+        [lastOp cancel];
+        // 取消的操作需要移除
+        [self.opCache removeObjectForKey:lastUrlString];
+    }
+}
+
 @end

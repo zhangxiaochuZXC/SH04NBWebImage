@@ -24,4 +24,11 @@
  */
 - (void)downloadImageWithUrlString:(NSString *)urlString finished:(void (^)(UIImage *image))finishedBlock;
 
+/**
+ 取消正在执行的操作
+
+ @param lastUrlString 正在执行的操作的url
+ */
+- (void)cancelOperation:(NSString *)lastUrlString;
+
 @end
