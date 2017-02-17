@@ -56,6 +56,11 @@
         return;
     }
     
+    // 沙盒缓存
+    if (image != nil) {
+        [data writeToFile:[self.urlString appendCachePath] atomically:YES];
+    }
+    
     // 图片下载结束之后,需要回调单例传入的代码块,把图片数据回调给单例
     if (self.finishedBlock != nil) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

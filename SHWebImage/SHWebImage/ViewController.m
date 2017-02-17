@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "YYModel.h"
 #import "APPModel.h"
-#import "DownloaderOperationManager.h"
+#import "UIImageView+DSB.h"
 
 @interface ViewController ()
 
@@ -18,8 +18,6 @@
 @property (nonatomic, strong) NSArray *dataSource;
 /// 图片控件
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-/// 上次的图片地址
-@property (nonatomic, copy) NSString *lastUrlString;
 
 @end
 
@@ -57,21 +55,24 @@
     // 通过随机数随机获取图片地址(模型)
     APPModel *app = self.dataSource[random];
     
-    // 判断连续传入的图片地址是否一样,如果不一样就取消上一次正在执行的操作,反之,就返回,不在建立"重复"的下载操作
-    if (![app.icon isEqualToString:self.lastUrlString]) {
-        
-        // 单例管理取消操作
-        [[DownloaderOperationManager sharedManager] cancelOperation:self.lastUrlString];
-    }
+    // 分类实现图片处理
+    [self.iconImageView ds_setImageWithUrlString:app.icon];
     
-    // 记录上次图片地址
-    self.lastUrlString = app.icon;
-
-    // 单例管理下载操作
-    [[DownloaderOperationManager sharedManager] downloadImageWithUrlString:app.icon finished:^(UIImage *image) {
-        // 刷新UI
-        self.iconImageView.image = image;
-    }];
+//    // 判断连续传入的图片地址是否一样,如果不一样就取消上一次正在执行的操作,反之,就返回,不在建立"重复"的下载操作
+//    if (![app.icon isEqualToString:self.lastUrlString]) {
+//        
+//        // 单例管理取消操作
+//        [[DownloaderOperationManager sharedManager] cancelOperation:self.lastUrlString];
+//    }
+//    
+//    // 记录上次图片地址
+//    self.lastUrlString = app.icon;
+//
+//    // 单例管理下载操作
+//    [[DownloaderOperationManager sharedManager] downloadImageWithUrlString:app.icon finished:^(UIImage *image) {
+//        // 刷新UI
+//        self.iconImageView.image = image;
+//    }];
 }
 
 /*

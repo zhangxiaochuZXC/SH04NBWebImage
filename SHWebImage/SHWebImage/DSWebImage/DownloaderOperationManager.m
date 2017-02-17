@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSOperationQueue *queue;
 /// 下载操作缓存池
 @property (nonatomic, strong) NSMutableDictionary *opCache;
+/// 图片缓存池
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
 
 @end
 
@@ -39,12 +41,20 @@
     if (self = [super init]) {
         self.queue = [[NSOperationQueue alloc] init];
         self.opCache = [[NSMutableDictionary alloc] init];
+        self.imageCache = [[NSMutableDictionary alloc] init];
     }
     
     return self;
 }
 
 - (void)downloadImageWithUrlString:(NSString *)urlString finished:(void (^)(UIImage *))finishedBlock {
+    
+    // 判断是否有图片缓存
+    if ([self checkCache:urlString] == YES) {
+        // 如果有缓存就从缓存中取出图片,然后直接回调给外界
+        finishedBlock([self.imageCache objectForKey:urlString]);
+        return;
+    }
     
     // 在建立下载操作之前,判断要建立的下载的操作是否存在
     if ([self.opCache objectForKey:urlString] != nil) {
@@ -59,6 +69,9 @@
             finishedBlock(image);
         }
         
+        // 缓存图片到内存缓存池
+        [self.imageCache setObject:image forKey:urlString];
+        
         // 移除下载操作缓存池里面的擦做
         [self.opCache removeObjectForKey:urlString];
     };
@@ -70,6 +83,25 @@
     
     // 把操作添加到队列
     [self.queue addOperation:op];
+}
+
+/// 检测是否有图片缓存
+- (BOOL)checkCache:(NSString *)urlString {
+    
+    if ([self.imageCache objectForKey:urlString]) {
+        NSLog(@"内存中... %@",urlString);
+        return YES;
+    }
+    
+    UIImage *cacheImage = [UIImage imageWithContentsOfFile:[urlString appendCachePath]];
+    if (cacheImage != nil) {
+        NSLog(@"沙盒中... %@",urlString);
+        // 再在内存缓存中存一份
+        [self.imageCache setObject:cacheImage forKey:urlString];
+        return YES;
+    }
+
+    return NO;
 }
 
 - (void)cancelOperation:(NSString *)lastUrlString {
